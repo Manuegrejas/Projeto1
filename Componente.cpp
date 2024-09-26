@@ -9,6 +9,10 @@ class Componente{
         string nome;
 
     public:
+
+        Componente(bool ligado, bool conectado, int valor, string nome): 
+        ligado(ligado), conectado(conectado), valor(valor), nome(nome){}
+
         void ligar(){
 
         }

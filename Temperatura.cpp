@@ -1,7 +1,7 @@
 #include "Sensor.cpp"
 using namespace std;
 
-class Temperatura{
+class Temperatura:public Sensor{
     private:
         float TempC;
         float TempF;
@@ -9,8 +9,17 @@ class Temperatura{
 
     public:
 
-        float getTemperaturaEmC(){
-            //TempC = rand();
+        Temperatura(float TempC, bool ligado, bool conectado, int valor, string nome) : 
+        TempC(TempC), Sensor(ligado, conectado, valor, nome){}
+
+        float getTemperaturaEmC(float TempC){
+            int n = rand();
+            if (n%2 == 0){
+                TempC ++;
+            } 
+            else {
+                TempC --;
+            }
             return TempC;
         }
 
