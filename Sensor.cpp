@@ -6,6 +6,9 @@ class Sensor:public Componente{
         float valor;
 
     public: 
+         Sensor(bool ligado, bool conectado, int valor, string nome) :
+         Componente(ligado, conectado, valor, nome){}
+
          Sensor(bool ligado, bool conectado, string nome) :
          Componente(ligado, conectado, nome){}
 

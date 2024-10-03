@@ -33,6 +33,6 @@ class Componente{
         }
 
         int getValor(){
-
+            return valor;
         }
 };

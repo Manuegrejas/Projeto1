@@ -9,7 +9,14 @@ class Ventilador:public Atuador{
         Ventilador(bool ligado, bool conectado, int valor, string nome) : 
         Atuador(ligado, conectado, valor, nome){}
 
-        bool setVelocidade(int){
+        int getVelocidade(){
+            return getValor();
+        }
+
+        bool setVelocidade(int velocidade){
+            if (velocidade > 3 || velocidade < 0){
+                return false;
+            } else { return true; }
 
         }
 };

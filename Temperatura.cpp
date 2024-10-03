@@ -7,6 +7,8 @@ class Temperatura:public Sensor{
         float TempF;
         float TempK;
         int   Valor;
+        bool ligado;
+        bool conectado;
 
     public:
 
@@ -14,21 +16,13 @@ class Temperatura:public Sensor{
         TempC(TempC), Sensor(ligado, conectado, nome){}
 
 
-        int getValor(int velocidade){
-            this -> Valor-=velocidade; 
-            return this -> Valor;  
-        }
-        int getValor(){
-            int n = rand();
-            if (n%2 == 0){
-                Valor ++;
+        float setTemperaturaEmC(int velocidade){
+            if (ligado == true && conectado == true){
+                this -> TempC-=velocidade; 
+                return this -> TempC; 
             } 
-            else {
-                Valor --;
-            }
-            return Valor;
         }
-        float getTemperaturaEmC(float TempC){
+        float setTemperaturaEmC(float TempC){
             int n = rand();
             if (n%2 == 0){
                 TempC ++;
@@ -38,14 +32,23 @@ class Temperatura:public Sensor{
             }
             return TempC;
         }
-
-        float getTemperaturaEmF(){
+        
+        float setTemperaturaEmF(){
             TempF = (9*TempC/5) + 32;
             return TempF;
         }
 
-        float getTemperaturaEmK(){
+        float setTemperaturaEmK(){
             TempK = TempC + 273.15;
+            return TempK;
+        }
+        int getTemperaturaEmC(){
+            return TempC;
+        }
+        int getTemperaturaEmF(){
+            return TempF;
+        }
+        int getTemperaturaEmK(){
             return TempK;
         }
 };
