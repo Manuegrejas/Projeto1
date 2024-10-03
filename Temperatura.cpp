@@ -9,8 +9,8 @@ class Temperatura:public Sensor{
 
     public:
 
-        Temperatura(float TempC, bool ligado, bool conectado, int valor, string nome) : 
-        TempC(TempC), Sensor(ligado, conectado, valor, nome){}
+        Temperatura(float TempC, bool ligado, bool conectado, string nome) : 
+        TempC(TempC), Sensor(ligado, conectado, nome){}
 
         float getTemperaturaEmC(float TempC){
             int n = rand();

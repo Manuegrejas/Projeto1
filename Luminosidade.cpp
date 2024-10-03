@@ -6,8 +6,8 @@ class Luminosidade:public Sensor{
         int limiarClaridade;
 
     public:
-        Luminosidade(int limiarClaridade, bool ligado, bool conectado, int valor, string nome) : 
-        limiarClaridade(limiarClaridade), Sensor(ligado, conectado, valor, nome){}
+        Luminosidade(int limiarClaridade, bool ligado, bool conectado, string nome) : 
+        limiarClaridade(limiarClaridade), Sensor(ligado, conectado, nome){}
         
         void setLimiarClaridade(int){
 

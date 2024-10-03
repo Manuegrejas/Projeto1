@@ -13,6 +13,9 @@ class Componente{
         Componente(bool ligado, bool conectado, int valor, string nome): 
         ligado(ligado), conectado(conectado), valor(valor), nome(nome){}
 
+        Componente(bool ligado, bool conectado, string nome): 
+        ligado(ligado), conectado(conectado), nome(nome){}
+
         void ligar(){
 
         }
