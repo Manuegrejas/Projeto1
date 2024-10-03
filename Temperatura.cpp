@@ -6,12 +6,28 @@ class Temperatura:public Sensor{
         float TempC;
         float TempF;
         float TempK;
+        int   Valor;
 
     public:
 
         Temperatura(float TempC, bool ligado, bool conectado, string nome) : 
         TempC(TempC), Sensor(ligado, conectado, nome){}
 
+
+        int getValor(int velocidade){
+            this -> Valor-=velocidade; 
+            return this -> Valor;  
+        }
+        int getValor(){
+            int n = rand();
+            if (n%2 == 0){
+                Valor ++;
+            } 
+            else {
+                Valor --;
+            }
+            return Valor;
+        }
         float getTemperaturaEmC(float TempC){
             int n = rand();
             if (n%2 == 0){
