@@ -1,5 +1,6 @@
 #include "Atuador.cpp"
 using namespace std;
+#pragma once
 
 class Desumidificador:public Atuador{
     private:
@@ -10,6 +11,7 @@ class Desumidificador:public Atuador{
         Atuador(ligado, conectado, valor, nome){}
 
         bool setConfiguracao(int){
+            return true;
             
         }
 };

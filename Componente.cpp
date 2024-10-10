@@ -1,15 +1,19 @@
 #include <iostream>
 using namespace std;
+#pragma once
 
 class Componente{
     private:
-        bool ligado;
-        bool conectado;
-        int valor;
-        string nome;
+       
 
     public:
+    
+        bool ligado;
+        bool conectado;
+        string nome;
 
+        int valor;
+        
         Componente(bool ligado, bool conectado, int valor, string nome): 
         ligado(ligado), conectado(conectado), valor(valor), nome(nome){}
 
@@ -25,6 +29,7 @@ class Componente{
         }
 
         bool conectar(){
+            return true;
 
         }
 

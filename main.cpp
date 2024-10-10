@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 #include "Componente.cpp"
 #include "Atuador.cpp"
 #include "Ventilador.cpp"
@@ -18,7 +19,7 @@ int main(){
     // Inicializando atuadores1
     Atuador* atuadores1[4];
     atuadores1[0] = new Lampada(true, true, 50, "lamp1"); /*bool ligado, bool conectado, int valor, string nome*/
-    atuadores1[1] = new Ventilador(false, true, 10, "vent1");/*bool ligado, bool conectado, int valor, string nome*/
+    atuadores1[1] = new Ventilador(true, true, 1, "vent1");/*bool ligado, bool conectado, int valor, string nome*/
     atuadores1[2] = new Umidificador(false, false, 0, "Um1");/*bool ligado, bool conectado, int valor, string nome*/
     atuadores1[3] = new Desumidificador(true, true, 3, "Desu1");/*bool ligado, bool conectado, int valor, string nome*/
 
@@ -62,39 +63,10 @@ int main(){
 
 for (int i = 0; i < 10; i++){
 
+    s1.atualizaSensores();
+    s1.atualizaAtuadores();
     
-    if (((Temperatura*)sensores1[1])->getTemperaturaEmC() > 25 && ((Temperatura*)sensores1[1])->getTemperaturaEmC() < 30){
-        ((Ventilador*)atuadores1[1])->setVelocidade(1);
-    } else if (((Temperatura*)sensores1[1])->getTemperaturaEmC() > 30 && ((Temperatura*)sensores1[1])->getTemperaturaEmC() < 35){
-        ((Ventilador*)atuadores1[1])->setVelocidade(2);
-    } else if (((Temperatura*)sensores1[1])->getTemperaturaEmC() > 35){
-        ((Ventilador*)atuadores1[1])->setVelocidade(1);
-    }
-    if (((Temperatura*)sensores2[1])->getTemperaturaEmC() > 25 && ((Temperatura*)sensores2[1])->getTemperaturaEmC() < 30){
-        ((Ventilador*)atuadores2[1])->setVelocidade(1);
-    } else if (((Temperatura*)sensores2[1])->getTemperaturaEmC() > 30 && ((Temperatura*)sensores2[1])->getTemperaturaEmC() < 35){
-        ((Ventilador*)atuadores2[1])->setVelocidade(2);
-    } else if (((Temperatura*)sensores2[1])->getTemperaturaEmC() > 35){
-        ((Ventilador*)atuadores2[1])->setVelocidade(1);
-    }
-    if (((Temperatura*)sensores3[1])->getTemperaturaEmC() > 25 && ((Temperatura*)sensores2[1])->getTemperaturaEmC() < 30){
-        ((Ventilador*)atuadores3[1])->setVelocidade(1);
-    } else if (((Temperatura*)sensores3[1])->getTemperaturaEmC() > 30 && ((Temperatura*)sensores2[1])->getTemperaturaEmC() < 35){
-        ((Ventilador*)atuadores3[1])->setVelocidade(2);
-    } else if (((Temperatura*)sensores3[1])->getTemperaturaEmC() > 35){
-        ((Ventilador*)atuadores3[1])->setVelocidade(1);
-    }
-    
-   
-    if (((Ventilador*)atuadores1[1])->setVelocidade(((Ventilador*)atuadores1[1])->getVelocidade()) == false) {
-        cout << "Ventilador não inicializado corretamente";
-    }
-    if (((Ventilador*)atuadores2[1])->setVelocidade(((Ventilador*)atuadores2[1])->getVelocidade()) == false) {
-        cout << "Ventilador não inicializado corretamente";
-    }
-    if (((Ventilador*)atuadores3[1])->setVelocidade(((Ventilador*)atuadores3[1])->getVelocidade()) == false) {
-        cout << "Ventilador não inicializado corretamente";
-    }
 
 
+}
 }

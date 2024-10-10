@@ -1,5 +1,6 @@
 #include "Sensor.cpp"
 using namespace std;
+#pragma once
 
 class Umidade:public Sensor{
     private:
@@ -9,6 +10,7 @@ class Umidade:public Sensor{
         Sensor(ligado, conectado, valor, nome){}
 
         float getUmidadeRelativa(){
+            return 0;
             
         }
 };

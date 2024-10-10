@@ -1,5 +1,6 @@
 #include "Atuador.cpp"
 using namespace std;
+#pragma once
 
 class Ventilador:public Atuador{
     private:
@@ -13,10 +14,20 @@ class Ventilador:public Atuador{
             return getValor();
         }
 
-        bool setVelocidade(int velocidade){
+        bool setValor(int velocidade){
+            cout << velocidade << endl;
             if (velocidade > 3 || velocidade < 0){
+                cout << "UM" << endl;
                 return false;
-            } else { return true; }
+            } 
+            
+            else {
+                
+                this -> valor  = velocidade;
+                cout << "DOIS" << endl;
+                 return true;
+
+                  }
 
         }
 };

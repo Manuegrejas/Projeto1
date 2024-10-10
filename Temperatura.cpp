@@ -1,5 +1,6 @@
 #include "Sensor.cpp"
 using namespace std;
+#pragma once
 
 class Temperatura:public Sensor{
     private:
@@ -7,8 +8,7 @@ class Temperatura:public Sensor{
         float TempF;
         float TempK;
         int   Valor;
-        bool ligado;
-        bool conectado;
+    
 
     public:
 
@@ -17,20 +17,31 @@ class Temperatura:public Sensor{
 
 
         float setTemperaturaEmC(int velocidade){
+            cout << ligado << endl;
+            cout << conectado << endl;
+            cout << velocidade << endl;
+            cout << TempC << endl;
             if (ligado == true && conectado == true){
+                cout << TempC << endl;
                 this -> TempC-=velocidade; 
+                cout << TempC << endl;
                 return this -> TempC; 
+
             } 
+        
         }
         float setTemperaturaEmC(float TempC){
             int n = rand();
+            cout << n << endl;
             if (n%2 == 0){
-                TempC ++;
+                this -> TempC ++;
+        
             } 
             else {
-                TempC --;
+                this -> TempC --;
             }
-            return TempC;
+            cout << TempC << endl;
+            return this ->TempC;
         }
         
         float setTemperaturaEmF(){

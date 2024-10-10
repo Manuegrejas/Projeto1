@@ -1,5 +1,6 @@
 #include "Componente.cpp"
 using namespace std;
+#pragma once
 
 class Atuador:public Componente{
     private:
@@ -8,7 +9,8 @@ class Atuador:public Componente{
         Atuador(bool ligado, bool conectado, int valor, string nome) :
          Componente(ligado, conectado, valor, nome){}
 
-        bool setValor(){
+        bool setValor(int valor){
+            return true;
             
         }
 };

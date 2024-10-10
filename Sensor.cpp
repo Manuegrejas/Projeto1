@@ -1,5 +1,6 @@
 #include "Componente.cpp"
 using namespace std;
+#pragma once
 
 class Sensor:public Componente{
     private:

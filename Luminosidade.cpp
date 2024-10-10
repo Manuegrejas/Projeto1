@@ -1,5 +1,6 @@
 #include "Sensor.cpp"
 using namespace std;
+#pragma once
 
 class Luminosidade:public Sensor{
     private:
@@ -11,9 +12,11 @@ class Luminosidade:public Sensor{
         
         void setLimiarClaridade(int){
 
+
         }
 
         bool estaClaro(){
+            return true;
 
         }
 };
