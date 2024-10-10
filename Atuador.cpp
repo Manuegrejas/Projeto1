@@ -10,7 +10,6 @@ class Atuador:public Componente{
          Componente(ligado, conectado, valor, nome){}
 
         bool setValor(int valor){
-            return true;
-            
+            return valor;
         }
 };

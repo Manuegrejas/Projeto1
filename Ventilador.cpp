@@ -15,19 +15,13 @@ class Ventilador:public Atuador{
         }
 
         bool setValor(int velocidade){
-            cout << velocidade << endl;
             if (velocidade > 3 || velocidade < 0){
-                cout << "UM" << endl;
                 return false;
             } 
             
             else {
-                
                 this -> valor  = velocidade;
-                cout << "DOIS" << endl;
                  return true;
-
-                  }
-
+            }
         }
 };

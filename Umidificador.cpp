@@ -10,10 +10,17 @@ class Umidificador:public Atuador{
         Umidificador(bool ligado, bool conectado, int valor, string nome) : 
         Atuador(ligado, conectado, valor, nome){}
 
-
-        bool setConfiguracao(int){
-            return true;
-            
+        bool setConfiguracao(int intensidade){
+            if (intensidade > 3 || intensidade < 0){
+                return false;
+            } 
+            else {
+                this -> valor  = intensidade;
+                return true;
+            }
         }
 
+        int getValor(){
+            return valor;
+        }
 };

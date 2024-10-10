@@ -15,24 +15,15 @@ class Temperatura:public Sensor{
         Temperatura(float TempC, bool ligado, bool conectado, string nome) : 
         TempC(TempC), Sensor(ligado, conectado, nome){}
 
-
-        float setTemperaturaEmC(int velocidade){
-            cout << ligado << endl;
-            cout << conectado << endl;
-            cout << velocidade << endl;
-            cout << TempC << endl;
+        float setTemperaturaEmC(int velocidade){;
             if (ligado == true && conectado == true){
-                cout << TempC << endl;
                 this -> TempC-=velocidade; 
-                cout << TempC << endl;
                 return this -> TempC; 
-
             } 
         
         }
         float setTemperaturaEmC(float TempC){
             int n = rand();
-            cout << n << endl;
             if (n%2 == 0){
                 this -> TempC ++;
         
@@ -40,7 +31,6 @@ class Temperatura:public Sensor{
             else {
                 this -> TempC --;
             }
-            cout << TempC << endl;
             return this ->TempC;
         }
         
@@ -50,16 +40,10 @@ class Temperatura:public Sensor{
         }
 
         float setTemperaturaEmK(){
-            TempK = TempC + 273.15;
+            TempK = TempC + 273;
             return TempK;
         }
         int getTemperaturaEmC(){
             return TempC;
-        }
-        int getTemperaturaEmF(){
-            return TempF;
-        }
-        int getTemperaturaEmK(){
-            return TempK;
         }
 };

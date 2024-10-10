@@ -3,6 +3,9 @@
 #include "Atuador.cpp"
 #include "Temperatura.cpp"
 #include "Ventilador.cpp"
+#include "Umidade.cpp"
+#include "Umidificador.cpp"
+#include "Desumidificador.cpp"
 using namespace std;
 #pragma once
 
@@ -10,9 +13,19 @@ class Sala{
     private:
     Atuador* atuadores[10];
     Sensor* sensores[10];
-    Temperatura*temp;
+    Temperatura*tempC;
+    Temperatura*tempK;
+    Temperatura*tempF;
     int t_atual;
+    int tk;
+    int tf;
     Ventilador*vent;
+    int velocidade;
+    Umidade*umi;
+    int umi_atual;
+    Umidificador*umir;
+    Desumidificador*desumir;
+    int intensidade;
 
 public:
     // Construtor que recebe arrays de ponteiros
@@ -22,47 +35,105 @@ public:
             this->sensores[i] = sensores[i];
         }
     
-        temp = (Temperatura*)sensores[1];
+        tempC = (Temperatura*)sensores[1];
         vent = (Ventilador*)atuadores[1];
+        umi = (Umidade*)sensores[2];
+        umir = (Umidificador*)atuadores[2];
+        desumir = (Desumidificador*)atuadores[3];
     }
 
-    void atualizaSensores(){
-        t_atual = temp -> getTemperaturaEmC();   
+    void atualizaSensoresTemperatura(){
+        t_atual = tempC -> getTemperaturaEmC(); 
+        tk = tempC -> setTemperaturaEmK();
+        tf = tempC -> setTemperaturaEmF();
     }
 
-    void atualizaAtuadores(){
-        int velocidade;
-    cout << "temparatura lida = " << t_atual << endl;
+     void atualizaSensoresUmidade(){
+        umi_atual = umi -> getUmidadeRelativa();
+    }
+
+    void atualizaAtuadoresTemperatura(){
     if (t_atual > 25 && t_atual < 30){
-        atuadores[1]->setValor(1);
+        vent -> setValor(1);
         velocidade = 1;
-        cout << " Ventilador ligado velocidade 1 " << endl;
     } else if (t_atual > 30 && t_atual < 35){
-        atuadores[1]->setValor(2);
+        vent -> setValor(2);
         velocidade = 2;
-        cout << " Ventilador ligado velocidade 2 " << endl;
     } else if (t_atual > 35){
-        atuadores[1]->setValor(3);
+        vent ->setValor(3);
         velocidade = 3;
-        cout << " Ventilador ligado velocidade 3 " << endl;
     } else {
-        atuadores[1]->setValor(0);
+        vent -> setValor(0);
         velocidade = 0;
-        cout << " Ventilador desligado " << endl;
     }
     
     if (velocidade == 0){
-        temp -> setTemperaturaEmC(1.0f);
+        tempC -> setTemperaturaEmC(1.0f);
     }
     else { 
-        temp -> setTemperaturaEmC(velocidade);
+        tempC -> setTemperaturaEmC(velocidade);
     }
-    if (((Ventilador*)atuadores[1])->setValor(((Ventilador*)atuadores[1])->getVelocidade()) == false) {
-        cout << "Ventilador não inicializado corretamente";
+    if (vent -> setValor(vent-> getVelocidade()) == false) {
+        cout << "Ventilador não inicializado corretamente"<< endl;
+    } 
+    }
+
+    void atualizaAtuadoresUmidade(){
+    if (umi_atual > 47 && umi_atual < 50){
+        desumir -> setValor(-1);
+        intensidade = -1;
+    } else if (umi_atual > 50 && umi_atual < 60){
+        desumir -> setValor(-2);
+        intensidade = -2;
+    } else if (umi_atual > 70){
+        desumir ->setValor(-3);
+        intensidade = -3;
     } else {
-        cout << "Ventilador inicializado corretamente";
+        desumir -> setValor(0);
+        intensidade = 0;
+    }
+
+    if (umi_atual < 43 && umi_atual > 30){
+        umir -> setValor(1);
+        intensidade = 1;
+    } else if (umi_atual < 30 && umi_atual > 20){
+        umir -> setValor(2);
+        intensidade = 2;
+    } else if (umi_atual < 20){
+        umir ->setValor(3);
+        intensidade = 3;
+    } else {
+        umir -> setValor(0);
+        intensidade = 0;
     }
     
+    if (intensidade == 0){
+        umi -> setUmidade(1.0f);
+    }
+    else { 
+        umi -> setUmidade(intensidade);
+    }
+    }
+
+    void imprimeValores(){
+        cout << "------------------------------------------------" << endl;
+        cout << "Temparatura lida em Celsius: " << t_atual << "°C" << endl;
+        cout << "Temparatura lida em Kelvins: " << tk << "K" <<endl;
+        cout << "Temparatura lida em Fahrenheit: " << tf << "°F" << endl;
+        cout << "Ventilador -> velocidade " << velocidade << endl;
+        cout << "Umidade Relativa lida: " << umi_atual << "%" << endl;
+        if (intensidade < 0) {
+            cout << "Desumidificador -> intensidade " << intensidade*-1 << endl;
+            cout << "Umidificador -> intensidade 0" << endl;
+        } else if (intensidade > 0){
+            cout << "Desumidificador -> intensidade 0" << endl;
+            cout << "Umidificador -> intensidade " << intensidade << endl;
+        } else {
+            cout << "Desumidificador -> intensidade 0" << endl;
+            cout << "Umidificador -> intensidade 0" << endl;
+        }
+        cout << "------------------------------------------------" << endl;
+        
     }
 
 };
