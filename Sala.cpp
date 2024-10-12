@@ -46,25 +46,25 @@ public:
         t_atual = tempC -> getTemperaturaEmC(); 
         tk = tempC -> setTemperaturaEmK();
         tf = tempC -> setTemperaturaEmF();
+        velocidade = vent -> getVelocidade();
     }
 
      void atualizaSensoresUmidade(){
         umi_atual = umi -> getUmidadeRelativa();
+        intensidade =  umir -> getIntensidade();
+        intensidade =  desumir -> getIntensidade();
     }
 
     void atualizaAtuadoresTemperatura(){
     if (t_atual > 25 && t_atual < 30){
         vent -> setValor(1);
-        velocidade = 1;
     } else if (t_atual > 30 && t_atual < 35){
         vent -> setValor(2);
-        velocidade = 2;
     } else if (t_atual > 35){
         vent ->setValor(3);
-        velocidade = 3;
     } else {
         vent -> setValor(0);
-        velocidade = 0;
+
     }
     
     if (velocidade == 0){
@@ -81,30 +81,19 @@ public:
     void atualizaAtuadoresUmidade(){
     if (umi_atual > 47 && umi_atual < 50){
         desumir -> setValor(-1);
-        intensidade = -1;
     } else if (umi_atual > 50 && umi_atual < 60){
         desumir -> setValor(-2);
-        intensidade = -2;
     } else if (umi_atual > 70){
         desumir ->setValor(-3);
-        intensidade = -3;
-    } else {
-        desumir -> setValor(0);
-        intensidade = 0;
-    }
-
-    if (umi_atual < 43 && umi_atual > 30){
+    } else if (umi_atual < 43 && umi_atual > 30){
         umir -> setValor(1);
-        intensidade = 1;
     } else if (umi_atual < 30 && umi_atual > 20){
         umir -> setValor(2);
-        intensidade = 2;
     } else if (umi_atual < 20){
         umir ->setValor(3);
-        intensidade = 3;
     } else {
         umir -> setValor(0);
-        intensidade = 0;
+        desumir -> setValor(0);
     }
     
     if (intensidade == 0){
@@ -113,6 +102,7 @@ public:
     else { 
         umi -> setUmidade(intensidade);
     }
+    
     }
 
     void imprimeValores(){

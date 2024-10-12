@@ -20,8 +20,8 @@ class Desumidificador:public Atuador{
             }
         }
 
-        int getValor(){
-            return valor;
+        int getIntensidade(){
+            return getValor();
         }
 
 };

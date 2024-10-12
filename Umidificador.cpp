@@ -20,7 +20,7 @@ class Umidificador:public Atuador{
             }
         }
 
-        int getValor(){
-            return valor;
+        int getIntensidade(){
+            return getValor();
         }
 };

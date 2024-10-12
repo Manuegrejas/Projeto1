@@ -12,9 +12,9 @@ class Componente{
         bool conectado;
         string nome;
 
-        float valor;
+        int valor;
         
-        Componente(bool ligado, bool conectado, float valor, string nome): 
+        Componente(bool ligado, bool conectado, int valor, string nome): 
         ligado(ligado), conectado(conectado), valor(valor), nome(nome){}
 
         Componente(bool ligado, bool conectado, string nome): 

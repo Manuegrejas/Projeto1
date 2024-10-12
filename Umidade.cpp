@@ -4,12 +4,18 @@ using namespace std;
 
 class Umidade:public Sensor{
     private:
+        int valor;
         
-
     public:
-        Umidade(bool ligado, bool conectado, float valor, string nome) : 
-        Sensor(ligado, conectado, valor, nome){}
+        Umidade(bool ligado, bool conectado, int valor, string nome) : 
+        Sensor(ligado, conectado, valor, nome){
+            this->valor = valor;
+        }
 
+        int getUmidadeRelativa(){
+            return valor;    
+        }
+        
         float setUmidade(int intensidade){;
             if (ligado == true && conectado == true){
                 this -> valor+=intensidade*2; 
@@ -27,9 +33,5 @@ class Umidade:public Sensor{
                 this -> valor--;
             }
             return this ->valor;
-        }
-
-        float getUmidadeRelativa(){
-            return valor;    
         }
 };

@@ -7,9 +7,7 @@ class Temperatura:public Sensor{
         float TempC;
         float TempF;
         float TempK;
-        int   Valor;
     
-
     public:
 
         Temperatura(float TempC, bool ligado, bool conectado, string nome) : 
