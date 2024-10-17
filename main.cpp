@@ -61,8 +61,10 @@ int main(){
     Sala s3(atuadores3, sensores3);
 
 
-for (int i = 0; i < 10; i++){
+for (int i = 0; i < 1440; i++){
 
+    s1.atualizaSensoresLuminosidade();
+    s1.atualizaAtuadoresLuminosidade(i);
     s1.atualizaSensoresTemperatura();
     s1.atualizaAtuadoresTemperatura();
     s1.atualizaSensoresUmidade();

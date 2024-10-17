@@ -10,8 +10,18 @@ class Lampada:public Atuador{
         Lampada(bool ligado, bool conectado, int valor, string nome) : 
         Atuador(ligado, conectado, valor, nome){}
 
-        bool setBrilho(int){
-            return true;
+         int getPotencia(){
+            return getValor();
+        }
+        
+        bool setBrilho(int potencia){
+           if (potencia > 5 || potencia < 0){
+                return false;
+            } 
             
+            else {
+                this -> valor  = potencia;
+                 return true;
+            }
         }
 };

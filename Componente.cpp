@@ -21,19 +21,28 @@ class Componente{
         ligado(ligado), conectado(conectado), nome(nome){}
 
         void ligar(){
-
+            ligado = true;
+        
         }
 
         void desligar(){
+            ligado = false;
 
         }
 
         bool conectar(){
-            return true;
+            if(conectado == true){
+                conectado = true;
+                return true;
+                }
+                else{
+                    return false;
+                    }
 
         }
 
         void desconectar(){
+            conectado = false;
 
         }
 

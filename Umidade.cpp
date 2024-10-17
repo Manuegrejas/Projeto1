@@ -21,7 +21,6 @@ class Umidade:public Sensor{
                 this -> valor+=intensidade*2; 
                 return this -> valor; 
             } 
-        
         }
         float setUmidade(float i){
             int n = rand();

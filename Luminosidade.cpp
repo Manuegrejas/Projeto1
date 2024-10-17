@@ -8,15 +8,23 @@ class Luminosidade:public Sensor{
 
     public:
         Luminosidade(int limiarClaridade, bool ligado, bool conectado, int valor, string nome) : 
-        limiarClaridade(limiarClaridade), Sensor(ligado, conectado, valor, nome){}
+        limiarClaridade(limiarClaridade), Sensor(ligado, conectado, valor, nome){
+            this -> valor =  valor;
+        }
         
-        void setLimiarClaridade(int){
-
-
+        int getLuminosidade(){
+            return valor;    
+        }
+        
+        void setLimiarClaridade(int limiarClaridade){
+            this -> limiarClaridade = limiarClaridade;
         }
 
-        bool estaClaro(){
-            return true;
-
+        bool estaClaro(int limiarClaridade){
+            if (limiarClaridade < 50){
+                return false;
+            } else if (limiarClaridade >= 50){
+                return true;
+            }
         }
 };
