@@ -178,8 +178,8 @@ public:
     
     }
 
-    void imprimeValores(){
-        cout << "------------------------------------------------" << endl;
+    void imprimeValores(int ns){
+        cout << "-------------------SALA " << ns << "-----------------------" << endl;
         cout << "Luminosidade lida do lado de fora: " << lumi_atual << "%"  <<  endl;
         cout << "Lâmpada -> potência " << potencia << endl;
         cout << "Temparatura lida em Celsius: " << t_atual << "°C" << endl;

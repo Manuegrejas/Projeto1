@@ -61,7 +61,7 @@ int main(){
     Sala s3(atuadores3, sensores3);
 
 
-for (int i = 0; i < 1440; i++){
+for (int i = 0; i < 14; i++){
 
     s1.atualizaSensoresLuminosidade();
     s1.atualizaAtuadoresLuminosidade(i);
@@ -69,7 +69,23 @@ for (int i = 0; i < 1440; i++){
     s1.atualizaAtuadoresTemperatura();
     s1.atualizaSensoresUmidade();
     s1.atualizaAtuadoresUmidade();
-    s1.imprimeValores();
+    s1.imprimeValores(1);
+
+    //s2.atualizaSensoresLuminosidade();
+    //s2.atualizaAtuadoresLuminosidade(i);
+    //s2.atualizaSensoresTemperatura();
+    //s2.atualizaAtuadoresTemperatura();
+    //s2.atualizaSensoresUmidade();
+    //s2.atualizaAtuadoresUmidade();
+    //s2.imprimeValores(2);
+
+    //s3.atualizaSensoresLuminosidade();
+    //s3.atualizaAtuadoresLuminosidade(i);
+    //s3.atualizaSensoresTemperatura();
+    //s3.atualizaAtuadoresTemperatura();
+    //s3.atualizaSensoresUmidade();
+    //s3.atualizaAtuadoresUmidade();
+    //s3.imprimeValores(3);
     
 }
 }
