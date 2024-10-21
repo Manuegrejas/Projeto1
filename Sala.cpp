@@ -64,9 +64,8 @@ public:
     }
 
     void atualizaSensoresUmidade(){
+        intensidade =  umir -> getIntensidade() + desumir -> getIntensidade();
         umi_atual = umi -> getUmidadeRelativa();
-        intensidade =  umir -> getIntensidade();
-        intensidade =  desumir -> getIntensidade();
     }
 
     void atualizaAtuadoresLuminosidade(int i){
@@ -146,27 +145,35 @@ public:
     }
 
     void atualizaAtuadoresUmidade(){
+        cout << umi_atual <<  endl;
     if (umi_atual >= 47 && umi_atual <= 50){
         desumir -> setValor(-1);
         umir -> setValor(0);
+        cout << "-1" << endl;
     } else if (umi_atual >= 51 && umi_atual <= 69){
         desumir -> setValor(-2);
         umir -> setValor(0);
+        cout << "-2" << endl;
     } else if (umi_atual >= 70){
         desumir ->setValor(-3);
         umir -> setValor(0);
+        cout << "-3" << endl;
     } else if (umi_atual <= 43 && umi_atual >= 31){
         umir -> setValor(1);
         desumir -> setValor(0);
+        cout << "1" << endl;
     } else if (umi_atual <= 30 && umi_atual >= 21){
         umir -> setValor(2);
         desumir -> setValor(0);
+        cout << "2" << endl;
     } else if (umi_atual <= 20){
         umir ->setValor(3);
         desumir -> setValor(0);
+        cout << "3" << endl;
     } else {
         umir -> setValor(0);
         desumir -> setValor(0);
+        cout << "0" << endl;
     }
 
     if (intensidade == 0){
