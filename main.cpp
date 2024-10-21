@@ -19,14 +19,14 @@ int main(){
     // Inicializando atuadores1
     Atuador* atuadores1[4];
     atuadores1[0] = new Lampada(true, true, 50, "lamp1"); /*bool ligado, bool conectado, int valor, string nome*/
-    atuadores1[1] = new Ventilador(true, true, 1, "vent1");/*bool ligado, bool conectado, int valor, string nome*/
+    atuadores1[1] = new Ventilador(true, true, 0, "vent1");/*bool ligado, bool conectado, int valor, string nome*/
     atuadores1[2] = new Umidificador(true, true, 0, "Um1");/*bool ligado, bool conectado, int valor, string nome*/
     atuadores1[3] = new Desumidificador(true, true, -3, "Desu1");/*bool ligado, bool conectado, int valor, string nome*/
 
     // Inicializando sensores1
     Sensor* sensores1[3];
     sensores1[0] = new Luminosidade(50, true, true, 60, "lumi1");/*int limiarClaridade, bool ligado, bool conectado, int valor, string nome*/
-    sensores1[1] = new Temperatura(26, true, true, "temp1");/*float TempC, bool ligado, bool conectado, string nome*/
+    sensores1[1] = new Temperatura(36, true, true, "temp1");/*float TempC, bool ligado, bool conectado, string nome*/
     sensores1[2] = new Umidade(true, true, 70, "Umi1");/*bool ligado, bool conectado, int valor, string nome*/
 
     // Inicializando atuadores2
@@ -45,7 +45,7 @@ int main(){
     // Inicializando atuadores3
     Atuador* atuadores3[4];
     atuadores3[0] = new Lampada(true, true, 100, "lamp3");
-    atuadores3[1] = new Ventilador(true, true, 3, "vent3");
+    atuadores3[1] = new Ventilador(true, true, 0, "vent3");
     atuadores3[2] = new Umidificador(true, true, 0, "Um3");
     atuadores3[3] = new Desumidificador(true, true, 0, "Desu3");
 
@@ -63,12 +63,12 @@ int main(){
 
 for (int i = 0; i < 14; i++){
 
-    s1.atualizaSensoresLuminosidade();
     s1.atualizaAtuadoresLuminosidade(i);
+    s1.atualizaSensoresLuminosidade();
     s1.atualizaSensoresTemperatura();
     s1.atualizaAtuadoresTemperatura();
-    s1.atualizaSensoresUmidade();
     s1.atualizaAtuadoresUmidade();
+    s1.atualizaSensoresUmidade();
     s1.imprimeValores(1);
 
     //s2.atualizaSensoresLuminosidade();

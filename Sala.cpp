@@ -122,13 +122,14 @@ public:
     }
 
     void atualizaAtuadoresTemperatura(){
-    if (t_atual > 25 && t_atual < 30){
+        vent -> setValor(0);
+    if (t_atual >= 25 && t_atual < 30){
         vent -> setValor(1);
-    } else if (t_atual > 30 && t_atual < 35){
+    } else if (t_atual >= 30 && t_atual < 35){
         vent -> setValor(2);
-    } else if (t_atual > 35){
+    } else if (t_atual >= 35){
         vent ->setValor(3);
-    } else {
+    } else if (t_atual < 25) {
         vent -> setValor(0);
 
     }
