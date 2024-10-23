@@ -1,15 +1,4 @@
 #include <iostream>
-#pragma once
-#include "Componente.cpp"
-#include "Atuador.cpp"
-#include "Ventilador.cpp"
-#include "Umidificador.cpp"
-#include "Desumidificador.cpp"
-#include "Lampada.cpp"
-#include "Sensor.cpp"
-#include "Temperatura.cpp"
-#include "Luminosidade.cpp"
-#include "Umidade.cpp"
 #include "Sala.cpp" 
 using namespace std;
 
@@ -61,7 +50,7 @@ int main(){
     Sala s3(atuadores3, sensores3);
 
 
-for (int i = 0; i < 14; i++){
+for (int i = 0; i < 1440; i++){
 
     s1.atualizaSensoresLuminosidade();
     s1.atualizaAtuadoresLuminosidade(i);
